@@ -42,8 +42,8 @@ class WT:
         w1_w2 = waermekapazitaetstrom_warm / waermekapazitaetstrom_kalt
         w2_w1 = waermekapazitaetstrom_kalt / waermekapazitaetstrom_warm
 
-        wirkung_warm = (1 - np.exp(-ntu_warm * 1 * (1-w1_w2))) / (1 - w1_w2 * np.exp(-ntu_warm * (1-w1_w2)))
-        wirkung_kalt = (1 - np.exp(-ntu_kalt * 1 * (1-w2_w1))) / (1 - w2_w1 * np.exp(-ntu_kalt * (1-w2_w1)))
+        wirkung_warm = (1 - np.exp(-ntu_warm * 1 * (1 - w1_w2))) / (1 - w1_w2 * np.exp(-ntu_warm * (1 - w1_w2)))
+        wirkung_kalt = (1 - np.exp(-ntu_kalt * 1 * (1 - w2_w1))) / (1 - w2_w1 * np.exp(-ntu_kalt * (1 - w2_w1)))
 
         self.t_warm = self.eintritt_warm - wirkung_warm * (self.eintritt_warm - self.eintritt_kalt) * 1
         self.t_kalt = self.eintritt_kalt + (self.eintritt_warm - self.eintritt_kalt) * wirkung_kalt * 1

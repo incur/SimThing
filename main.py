@@ -15,7 +15,7 @@ def main():
         valve0.update(now)
         wt0.update(now, valve0.v_now)
 
-        plot_sim(timeline, valve0, wt0)
+    plot_sim(timeline, valve0, wt0)
 
 
 def plot_sim(timeline, valve0, wt0):
@@ -46,7 +46,7 @@ def plot_sim(timeline, valve0, wt0):
     ax4.grid()
     ax4.plot(timeline.t, wt0.r_kalt)
 
-    plt.show()
+    plt.savefig('output/plot.png')
 
 
 class TimeLine:
@@ -57,4 +57,5 @@ class TimeLine:
 
 
 if __name__ == '__main__':
+    np.seterr(over='ignore', invalid='ignore')
     main()
